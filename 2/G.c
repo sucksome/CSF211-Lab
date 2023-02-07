@@ -88,6 +88,11 @@ Node *removeRepeatedNodes(Node *head){
             f = 1;
         }
         else if (f == 1){
+            if(temp == head){
+                head = temp->next;
+                f = 0;
+                continue;
+            }
             Node *temp2 = head;
             while(temp2->next!=temp){
                 temp2 = temp2->next;

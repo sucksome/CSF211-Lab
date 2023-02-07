@@ -77,27 +77,6 @@ void freeList(Node *head) {
     }
 }
 
-int findMedian(Node *head){
-    int i = 0, r = 0;
-    Node *temp = head;
-    while(temp!=NULL){
-        i++;
-        temp=temp->next;
-    }
-    temp = head;
-    for(int j = 0; j < (i/2)-1; j++){
-        temp = temp->next;
-    }
-    if(i>1)
-        r = temp->next->data;
-    else if (i==1)
-        r = temp->data;
-    if(i%2==0){
-        r += temp->data;
-        r /= 2;
-    }
-    return r;   
-}
 
 Node *mergeLists(Node *head1, Node *head2){
     Node *head = createNode(0);
