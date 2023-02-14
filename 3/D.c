@@ -60,7 +60,7 @@ int main(){
   int lskill = l->val, rskill = r->val;
   int a = 0, b = 0;
   int ll = 1, rr = 1;
-  while(ll+rr<n){
+  while(ll+rr<=n){
     if(lskill == rskill){
       if(ll > a){
         a = ll;

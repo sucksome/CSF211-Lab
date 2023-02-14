@@ -79,6 +79,7 @@ void playN(song *head, int *i, int s){
   temp->next = n;
   temp->prev = cur;
   cur->next = temp;
+  // put the following if loop inside the temp->id==s
   if(c<*i){
     (*i)--;
   }
