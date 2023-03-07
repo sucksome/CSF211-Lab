@@ -18,13 +18,7 @@ int numOp(string s){
 		}
 	}
 
-	int count = 0;
-	while(!stac.empty()){
-		count++;
-		stac.pop();
-	}
-
-	return count;
+	return stac.size();
 }
 
 int main(){
