@@ -16,12 +16,14 @@ int right(int i){
 
 int numFree (int n, int *inArr, int x, int index){
 	int r = 0;
-	if (isLeaf(index,n) || x < 0){
-		if (inArr[index]==x)
-			return 1;
+	if (inArr[index] == -1 || x < 0 || index > n){
 		return 0;
 	}
 	r += numFree(n,inArr,x-inArr[index],left(index));
+
+	if (inArr[index]==x && (2*index > n))
+		return 1;
+	
 	r += numFree(n,inArr,x-inArr[index],right(index));
 	return r;
 }

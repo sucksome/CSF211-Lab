@@ -2,10 +2,6 @@
 
 using namespace std;
 
-int isLeaf(int i, int n){
-	return (2*i > n);
-}
-
 int left(int i){
 	return 2*i;
 }
@@ -15,13 +11,8 @@ int right(int i){
 }
 
 void gstify(int n, int &sum, int *treeArr, int index){\
-	if (treeArr[index] == -1)
+	if (treeArr[index] == -1 || index > n)
 		return;
-	if (isLeaf(index,n)){
-		sum -= treeArr[index];
-		treeArr[index] += sum;
-		return;
-	}
 	gstify(n,sum,treeArr,left(index));
 	sum -= treeArr[index];
 	treeArr[index] +=sum;

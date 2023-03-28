@@ -10,10 +10,6 @@ int right(int i){
 	return 2*i +1;
 }
 
-int isLeaf(int i, int n){
-	return (2*i > n);
-}
-
 struct TreeNode{
 	int val;
 	TreeNode *left;
@@ -22,14 +18,10 @@ struct TreeNode{
 };
 
 TreeNode *buildTree(int n, int *inpArr, int index){
-	if (inpArr[index] == -1)
+	if (inpArr[index] == -1 || index > n)
 		return nullptr;
 
 	TreeNode *node = new TreeNode();
-	if (isLeaf(index,n) || inpArr[left(index)] == -1 && inpArr[right(index)] == -1){
-		node->val = inpArr[index];
-		return node;
-	}
 	node->left = buildTree(n,inpArr,left(index));
 	node->val = inpArr[index];
 	node->right = buildTree(n,inpArr,right(index));
