@@ -29,7 +29,7 @@ TreeNode *buildTree(int *preOrder, int *inOrder, int n){
 		return node;
 	}
 
-	int i = 0, p = 0;
+	int i = 0;
 	while (inOrder[i] != preOrder[0]){
 		i++;
 	}
