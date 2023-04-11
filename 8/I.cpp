@@ -10,7 +10,7 @@ void nextRound(int n, int k, pair<int,int> tuples[]){
 	map<int,int> lostMatches; // <player, num of lost matches>
 
 	for (int i = 0; i < n; i++){
-		lostMatches[tuples[i].first]; //just so that winner is also present in map, not need if a for loop is used in line 17 instead
+		lostMatches[tuples[i].first]; //just so that winner is also present in map, not needed if a for loop (0 to k) is used in line 17 instead
 		lostMatches[tuples[i].second]++;
 	}
 
