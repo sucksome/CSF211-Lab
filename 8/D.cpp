@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// the pass by reference is important
 void type1(long long k, set<long long> &buff){
 	auto it = buff.find(k);
 	if (it != buff.end()){
