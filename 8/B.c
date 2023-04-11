@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+// Create Palindrome of inp in ret using first half of inp
 void createPal(char *inp, char *ret, int size){
 	strncpy(ret,inp,size/2 );
 
@@ -15,6 +16,7 @@ void createPal(char *inp, char *ret, int size){
 	}
 }
 
+// Checks if all digits are 9
 int allN(int size, char *input){
 	for (int i = 0; i < size; i++){
 		if (input[i] != '9')

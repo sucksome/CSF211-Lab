@@ -6,8 +6,8 @@
 using namespace std;
 
 void printEm(int n, int m, int k, vector<int> A){
-	map<int,int> buff;
-	set<int> ks;
+	map<int,int> buff;	// <number, count>
+	set<int> ks;		// set consisting of nums with count k
 	
 	for (int i = 0; i < m; i++)
 		buff[A[i]]++;
@@ -19,11 +19,15 @@ void printEm(int n, int m, int k, vector<int> A){
 		it++;
 	}
 	if (!ks.empty())
-		cout << *ks.rbegin() << endl;
+		cout << *ks.rbegin() << endl;	//print last element (largest) in set
 	else
 		cout << -1 << endl;
 
+	// use a sliding window
 	for (int i = m; i < n; i++){
+		// remove from set if the incoming and outgoing elements were
+		// already in the set
+
 		if (buff[A[i-m]] == k){
 			auto iter = ks.find(A[i-m]);
 			ks.erase(iter);
@@ -32,17 +36,19 @@ void printEm(int n, int m, int k, vector<int> A){
 			auto iter = ks.find(A[i]);
 			ks.erase(iter);
 		}
-
+		
+		// update counts
 		buff[A[i-m]]--;
 		buff[A[i]]++;
 
+		// if counts equal k add the num to set
 		if (buff[A[i-m]] == k)
 			ks.insert(A[i-m]);
 		if (buff[A[i]] == k)
 			ks.insert(A[i]);
 
 		if (!ks.empty())
-			cout << *ks.rbegin() << endl;
+			cout << *ks.rbegin() << endl;	//print max num
 		else
 			cout << -1 << endl;
 	}

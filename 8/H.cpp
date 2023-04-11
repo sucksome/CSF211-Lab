@@ -1,3 +1,4 @@
+// This ones a bit redundant in dealing with strings
 #include <iostream>
 #include <set>
 #include <vector>
@@ -9,8 +10,8 @@ void printSeq(string s){
 	for (int i = 0; i < s.length(); i++)
 		str[i] = s[i];
 	
-	set<vector<char>> S;
-	set<vector<char>> buff;
+	set<vector<char>> S;	// for storing unique sequences of size 10
+	set<vector<char>> buff;	// for printing the output
 	
 	vector<char> temp(10);
 	for (int i = 0; i < 10; i++)
@@ -21,7 +22,7 @@ void printSeq(string s){
 		for (int ii = 0; ii < 10; ii++){
 			temp[ii] = s[i-9+ii];
 		}
-		if (S.end() != S.find(temp)){
+		if (S.end() != S.find(temp)){	// temp is a repeated seq
 			buff.insert(temp);		
 		}
 		else{
@@ -31,7 +32,7 @@ void printSeq(string s){
 	cout << buff.size() << endl;
 	auto it = buff.begin();
 	while (it != buff.end()){
-		string st((*it).begin(), (*it).end());
+		string st((*it).begin(), (*it).end()); // converting vec to string, again its bad 6 am no sleep code
 		cout << st << endl;
 		it++;
 	}
