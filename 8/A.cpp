@@ -1,4 +1,4 @@
-// Words are anagrams frequency arrays of their chars are identical
+// Words are anagrams if frequency arrays of their chars are identical
 // We use a map to store <word, num of anagrams>
 #include <iostream>
 #include <map>
