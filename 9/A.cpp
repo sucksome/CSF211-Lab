@@ -6,7 +6,7 @@ int maxBottles(int n, int in[]){
 	sort(in,in + n);
 	
 	int l = 0, r = n-1, score = 0;
-	while (score >= 0 && l <= r){
+	while (score >= 0 && l < r){
 		if (score + in[l] >= 0){
 			score += in[l];
 			l++;
